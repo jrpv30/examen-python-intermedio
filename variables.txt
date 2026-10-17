@@ -1,0 +1,44 @@
+EXAMEN PYTHON INTERMEDIO - BLOCK DE NOTAS DE VARIABLES
+Tema: Dashboard de gestión de activos de TI
+
+ARCHIVO DE DATOS: activos_ti.csv
+FILAS: 600 (datos sintéticos, sin información empresarial real)
+
+VARIABLES DE LA BASE DE DATOS
+id_activo            : str   - Código único del activo, ejemplo ACT-0001.
+empresa              : str   - Empresa ficticia de clasificación.
+sede                 : str   - Ciudad o sede donde se ubica el activo.
+tipo_activo          : str   - Laptop, Desktop, Monitor, Impresora, Servidor o Tablet.
+marca                : str   - Marca simulada del equipo.
+estado               : str   - Asignado, Disponible, Resguardo TI, En tránsito o De baja.
+modalidad            : str   - Propio, Alquiler o Renting.
+fecha_adquisicion    : fecha - Fecha simulada de adquisición en formato AAAA-MM-DD.
+costo_soles          : float - Costo referencial en moneda local (S/).
+responsable          : str   - Identificador simulado COL-XXXX o SIN ASIGNAR.
+
+VARIABLES DE PYTHON EN app.py
+df             : DataFrame - Base completa cargada desde CSV.
+empresas       : list      - Filtro de empresas seleccionadas.
+sedes          : list      - Filtro de sedes seleccionadas.
+estados        : list      - Filtro de estados seleccionados.
+tipos          : list      - Filtro de tipos de activo seleccionados.
+filtrado       : DataFrame - Filas que cumplen simultáneamente los filtros.
+por_estado     : DataFrame - Conteo de activos por estado.
+por_tipo       : DataFrame - Conteo de activos por tipo.
+por_empresa    : DataFrame - Suma de costo de activos por empresa.
+por_modalidad  : DataFrame - Conteo de activos por modalidad.
+por_anio       : DataFrame - Conteo de activos por año de adquisición.
+
+KPIs
+Total de activos = cantidad de filas filtradas.
+Asignados = cantidad con estado Asignado.
+Disponibles = cantidad con estado Disponible.
+Valor total = suma de costo_soles de filas filtradas.
+
+LIBRERIAS
+pandas: carga y agrupación de datos.
+streamlit: interfaz web, filtros, indicadores y tabla.
+plotly.express: gráficos interactivos.
+pathlib: ubicación del archivo CSV.
+
+Generación: generar_datos.py crea una base reproducible con random.seed(2026).
